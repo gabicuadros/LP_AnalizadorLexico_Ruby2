@@ -1,0 +1,7 @@
+var
+_var
+$var
+@var
+num_int=10
+num_float=15.2
+
