@@ -61,12 +61,6 @@ reserved = {
 
  "_LINE_":"_LINE_",
 
- "end":"END",
-
- "if":"IF",
-
- "for":"FOR",
-
  "case":"CASE",
 
  "begin":"BEGIN"
@@ -88,12 +82,10 @@ tokens = [
     "LDER",
     "CIZQ",
     "CDER",
-    "while",
     "less",
-    "begin",
-    "break",
-    "end",
     "BOOLEANO",
+    "IF",
+    "FOR"
 
 ] + list(reserved.values())
 t_IGUAL= r"="
@@ -117,11 +109,11 @@ def t_while(t):
     r'while'
     return t
 
-def t_IF(self, t):
+def t_IF(t):
         r'if'
         return t
 
-def t_FOR(self, t):
+def t_FOR(t):
         r'for'
         return t
 
