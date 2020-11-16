@@ -61,7 +61,15 @@ reserved = {
 
  "_LINE_":"_LINE_",
 
- "end":"END"
+ "end":"END",
+
+ "if":"IF",
+
+ "for":"FOR",
+
+ "case":"CASE",
+
+ "begin":"BEGIN"
     
 }
 tokens = [
@@ -85,6 +93,7 @@ tokens = [
     "begin",
     "break",
     "end",
+    "BOOLEANO",
 
 ] + list(reserved.values())
 t_IGUAL= r"="
@@ -101,12 +110,23 @@ t_CIZQ=r"\["
 t_CDER=r"\]"
 t_LIZQ=r"\{"
 t_LDER=r"\}"
+t_BOOLEANO=r"(true|false)"
 
 
 def t_while(t):
     r'while'
     return t
 
+def t_IF(self, t):
+        r'if'
+        return t
+
+def t_FOR(self, t):
+        r'for'
+        return t
+
+def build(self, **kwargs):
+        self.lexer = lex.lex(module=self, **kwargs)
 
 def t_VARIABLE(t):
     r"(_|@|@@|$)?[a-zA-Z][a-zA-Z0-9_]*"
@@ -132,7 +152,7 @@ def analizar(data):
 
 
 
-
+print("Mi primer analizador léxico:")
 # Testing
 
 archivo = open("codigo.txt")
