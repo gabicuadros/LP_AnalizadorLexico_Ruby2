@@ -102,7 +102,7 @@ t_CIZQ=r"\["
 t_CDER=r"\]"
 t_LIZQ=r"\{"
 t_LDER=r"\}"
-t_BOOLEANO=r"(true|false)"
+
 
 
 def t_while(t):
@@ -116,6 +116,65 @@ def t_IF(t):
 def t_FOR(t):
         r'for'
         return t
+
+def t_alias(t):
+        r'alias'
+        return t
+
+def t_and(t):
+        r'and'
+        return t
+
+def t_break(t):
+        r'break'
+        return t
+
+def t_class(t):
+        r'class'
+        return t
+
+def t_def(t):
+        r'def'
+        return t
+
+def t_end(t):
+        r'end'
+        return t
+
+def t_ensure(t):
+        r'ensure'
+        return t
+
+def t_false(t):
+        r'false'
+        return t
+
+def t_true(t):
+        r'true'
+        return t
+
+def t_in(t):
+        r'in'
+        return t
+
+def t_module(t):
+        r'module'
+        return t
+
+def t_nil(t):
+        r'nil'
+        return t
+
+def t_not(t):
+        r'not'
+        return t
+
+def t_or(t):
+        r'or'
+        return t
+
+
+
 
 def build(self, **kwargs):
         self.lexer = lex.lex(module=self, **kwargs)
