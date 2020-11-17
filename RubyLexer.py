@@ -73,7 +73,7 @@ t_LDER=r"\}"
 t_TRUE=r"([Tt]rue|TRUE)"
 t_FALSE=r"([Ff]alse|FALSE)"
 
-def t_while(t):
+def t_WHILE(t):
     r'while'
     return t
 
@@ -85,95 +85,95 @@ def t_FOR(t):
         r'for'
         return t
 
-def t_alias(t):
+def t_ALIAS(t):
         r'alias'
         return t
 
-def t_and(t):
+def t_AND(t):
         r'and'
         return t
 
-def t_break(t):
+def t_BREAK(t):
         r'break'
         return t
 
-def t_class(t):
+def t_CLASS(t):
         r'class .*'
         return t
 
-def t_def(t):
+def t_DEF(t):
         r'def'
         return t
 
-def t_end(t):
+def t_END(t):
         r'end'
         return t
 
-def t_ensure(t):
+def t_ENSURE(t):
         r'ensure'
         return t
 
-def t_in(t):
+def t_IN(t):
         r'in'
         return t
 
-def t_module(t):
+def t_MODULE(t):
         r'module'
         return t
 
-def t_nil(t):
+def t_NIL(t):
         r'nil'
         return t
 
-def t_not(t):
+def t_NOT(t):
         r'not'
         return t
 
-def t_or(t):
+def t_OR(t):
         r'or'
         return t
 
-def t_redo(t):
+def t_REDO(t):
         r'redo'
         return t
 
-def t_rescue(t):
+def t_RESCUE(t):
         r'rescue'
         return t
 
-def t_retry(t):
+def t_RETRY(t):
         r'retry'
         return t
 
-def t_return(t):
+def t_RETURN(t):
         r'return'
         return t
 
-def t_self(t):
+def t_SELF(t):
         r'self'
         return t
 
-def t_super(t):
+def t_SUPER(t):
         r'super'
         return t
 
-def t_then(t):
+def t_THEN(t):
         r'then'
         return t
 
-def t_undef(t):
+def t_UNDEF(t):
         r'undef'
         return t
 
-def t_until(t):
+def t_UNTIL(t):
         r'until'
         return t
 
-def t_when(t):
+def t_WHEN(t):
         r'when'
         return t
 
-def t_yield(t):
+def t_YIELD(t):
         r'yield'
         return t
 
@@ -185,15 +185,15 @@ def t_LINE(t):
         r'_LINE_'
         return t
 
-def t_case(t):
+def t_CASE(t):
         r'case'
         return t
 
-def t_begin(t):
+def t_BEGIN(t):
         r'begin'
         return t
 
-def t_array(t):
+def t_ARRAY(t):
         r'array'
         return t
 
