@@ -57,9 +57,9 @@ reserved = {
 
  "yield":"YIELD",
 
- "_FILE_":"_FILE_",
+ "_FILE_":"FILE",
 
- "_LINE_":"_LINE_",
+ "_LINE_":"LINE",
 
  "case":"CASE",
 
@@ -173,7 +173,65 @@ def t_or(t):
         r'or'
         return t
 
+def t_redo(t):
+        r'redo'
+        return t
 
+def t_rescue(t):
+        r'rescue'
+        return t
+
+def t_retry(t):
+        r'retry'
+        return t
+
+def t_return(t):
+        r'return'
+        return t
+
+def t_self(t):
+        r'self'
+        return t
+
+def t_super(t):
+        r'super'
+        return t
+
+def t_then(t):
+        r'then'
+        return t
+
+def t_undef(t):
+        r'undef'
+        return t
+
+def t_until(t):
+        r'until'
+        return t
+
+def t_when(t):
+        r'when'
+        return t
+
+def t_yield(t):
+        r'yield'
+        return t
+
+def t_FILE(t):
+        r'_FILE_'
+        return t
+
+def t_LINE(t):
+        r'_LINE_'
+        return t
+
+def t_case(t):
+        r'case'
+        return t
+
+def t_begin(t):
+        r'begin'
+        return t
 
 
 def build(self, **kwargs):
