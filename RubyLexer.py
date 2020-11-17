@@ -53,7 +53,19 @@ tokens = [
     "less",
     "BOOLEANO",
     "TRUE",
-    "FALSE"   
+    "FALSE",
+    "PUNTO",
+    "PUNTOYCOMA",
+    "DOSPUNTOS",
+    "LPAREN",
+    "RPAREN",
+    "LCORCH",
+    "RCORCH",
+    "LLLAVE",
+    "RLLAVE",
+    "COMA",
+    "DOBLECOMILLA"
+
 
 ] + list(reserved.values())
 t_IGUAL= r"="
@@ -72,7 +84,18 @@ t_LIZQ=r"\{"
 t_LDER=r"\}"
 t_TRUE=r"([Tt]rue|TRUE)"
 t_FALSE=r"([Ff]alse|FALSE)"
-
+#Simbolos
+t_PUNTO = r'\.'
+t_PUNTOYCOMA = r'\;'
+t_DOSPUNTOS = r':'
+t_LPAREN = r'\('
+t_RPAREN = r'\)'
+t_LCORCH = r'\['
+t_RCORCH = r'\]'
+t_LLLAVE = r'\{'
+t_RLLAVE = r'\}'
+t_COMA = r'\,'
+t_DOBLECOMILLA= r'\"'
 def t_WHILE(t):
     r'while'
     return t
