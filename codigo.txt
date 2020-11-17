@@ -7,4 +7,39 @@ num_float=15.2
 for
 _LINE_
 _FILE_
-
+var1=10
+x=15.2
+boolTest=false
+my_string=”Hello,World!”
+My_arr=Array.new
+Arr1=[]
+Arreglo=["1”,”2”,”3”]
+My_hash=Hash.new
+My_hash[“name”]=”Andrew”
+My_hash[:age]=20
+Person={:name=>"Andrew”,:age=>35,:job
+=>"plumber”}
+class Perro
+def initilize(raza,nombre)
+@raza = raza
+@nombre = nombre
+end
+def ladrar
+puts ‘Guau!’
+end
+end
+Labrador= Perro.new(“Labrador”,Benzy”
+(10..15)
+-1
+7-8
+6*6
+4/2
+4/0
+10%5
+6**3
+num1**num2
+num1%num2
+num1*num2
+num1-num2
+num1/num2
+num1+num2
