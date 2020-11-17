@@ -1,70 +1,38 @@
 import ply.lex as lex
 reserved = {
-
  "while":"WHILE",
-
  "alias":"ALIAS",
-
  "and":"AND",
-
  "break":"BREAK",
-
- "class": "CLASS",
-
+ "class":"CLASS",
  "def":"DEF",
-
  "end":"END",
-
  "ensure":"ENSURE",
-
- "false":"FALSE",
-
- "true":"TRUE",
-
  "in":"IN",
-
  "module":"MODULE",
-
  "next":"NEXT",
-
  "nil":"NIL",
-
  "not":"NOT",
-
  "or":"OR",
-
  "redo":"REDO",
-
  "rescue":"RESCUE",
-
  "retry":"RETRY",
-
  "return":"RETURN",
-
  "self":"SELF",
-
  "super":"SUPER",
-
  "then":"THEN",
-
  "undef":"UNDEF",
-
  "unless":"UNLESS",
-
  "until":"UNTIL",
-
  "when":"WHEN",
-
  "yield":"YIELD",
-
  "_FILE_":"FILE",
-
  "_LINE_":"LINE",
-
  "case":"CASE",
-
- "begin":"BEGIN"
-    
+ "begin":"BEGIN",
+ "if":"IF",
+ "for":"FOR",
+ "Array":"ARRAY"    
 }
 tokens = [
     "VARIABLE",
@@ -84,8 +52,8 @@ tokens = [
     "CDER",
     "less",
     "BOOLEANO",
-    "IF",
-    "FOR"
+    "TRUE",
+    "FALSE"   
 
 ] + list(reserved.values())
 t_IGUAL= r"="
@@ -102,8 +70,8 @@ t_CIZQ=r"\["
 t_CDER=r"\]"
 t_LIZQ=r"\{"
 t_LDER=r"\}"
-
-
+t_TRUE=r"([Tt]rue|TRUE)"
+t_FALSE=r"([Ff]alse|FALSE)"
 
 def t_while(t):
     r'while'
@@ -130,7 +98,7 @@ def t_break(t):
         return t
 
 def t_class(t):
-        r'class'
+        r'class .*'
         return t
 
 def t_def(t):
@@ -143,14 +111,6 @@ def t_end(t):
 
 def t_ensure(t):
         r'ensure'
-        return t
-
-def t_false(t):
-        r'false'
-        return t
-
-def t_true(t):
-        r'true'
         return t
 
 def t_in(t):
@@ -231,6 +191,10 @@ def t_case(t):
 
 def t_begin(t):
         r'begin'
+        return t
+
+def t_array(t):
+        r'array'
         return t
 
 

@@ -1,3 +1,4 @@
+bool1andbool2
 var
 _var
 $var
@@ -10,25 +11,24 @@ _FILE_
 var1=10
 x=15.2
 boolTest=false
-my_string=”Hello,World!”
+my_string="Hello,World!"
 My_arr=Array.new
 Arr1=[]
-Arreglo=["1”,”2”,”3”]
+Arreglo=["1","2","3"]
 My_hash=Hash.new
-My_hash[“name”]=”Andrew”
+My_hash["name"]="Andrew"
 My_hash[:age]=20
-Person={:name=>"Andrew”,:age=>35,:job
-=>"plumber”}
+Person={:name=>"Andrew",:age=>35,:job => "plumber"}
 class Perro
-def initilize(raza,nombre)
-@raza = raza
-@nombre = nombre
+def initialize(raza,nombre)
+    @raza = raza
+    @nombre = nombre
 end
 def ladrar
-puts ‘Guau!’
+    puts ‘Guau!’
 end
 end
-Labrador= Perro.new(“Labrador”,Benzy”
+Labrador= Perro.new("Labrador","Benzy")
 (10..15)
 -1
 7-8
@@ -37,9 +37,29 @@ Labrador= Perro.new(“Labrador”,Benzy”
 4/0
 10%5
 6**3
-num1**num2
-num1%num2
-num1*num2
-num1-num2
-num1/num2
-num1+num2
+num1 ** num2
+num1 % num2
+num1 * num2
+num1 - num2
+num1 / num2
+num1 + num2
+bool1 and bool2
+bool1 && bool2
+bool1 or bool2
+bool1 || bool2
+!bool1
+bool1 ˆ bool2
+a==b
+a!=b
+a>b
+a<b
+a>=b
+a<=b
+puts "Hola, mundo"
+archivo.puts "Hola\n"
+nombre=gets
+print "Hola, mundo"
+nombre=gets.chomp
+name = "Uriel"
+edad = 18
+printf "Me llamo %-10s y tengo %3d", name, edad"
