@@ -27,10 +27,13 @@ def p_asignacion(p):
 def p_imprimir(p):
     '''imprimir : print
                 | puts
+
     '''
 
 def p_print(p):
     'print : PRINT LPAREN expresion RPAREN'
+
+
 
 def p_puts(p):
     'puts : PUTS expresion'
