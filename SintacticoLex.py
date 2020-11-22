@@ -9,9 +9,16 @@ def p_algoritmo(p):
                  | expresion
                  | sentenciaIf
                  | comparacionLog
+                 | sentenciaWhile
     '''
 def p_sentenciaIf(p):
     'sentenciaIf : IF LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
+
+def p_sentenciaWhile(p):
+    'sentenciaWhile : WHILE LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
+
+def p_sentenciaIgualA(p):
+    'sentenciaIgualA :  valor  IGUALA valor'
 
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL expresion'
@@ -19,13 +26,18 @@ def p_asignacion(p):
 def p_imprimir(p):
     '''imprimir : print
                 | puts
+
     '''
 
 def p_print(p):
     'print : PRINT LPAREN expresion RPAREN'
 
+
+
 def p_puts(p):
     'puts : PUTS expresion'
+
+
     
 def p_expresion(p):
     '''expresion : valor
@@ -58,7 +70,7 @@ def p_operadorComp(p):
                    | MAYORIGU
                    | MENORIGU
                    | DIFERENTE
-                   | IGUALA
+                   | sentenciaIgualA
     '''
 def p_operadorLog(p):
     '''operadorLog  : OPAND
