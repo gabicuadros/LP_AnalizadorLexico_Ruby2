@@ -10,6 +10,8 @@ def p_algoritmo(p):
                  | sentenciaIf
                  | comparacionLog
                  | sentenciaWhile
+                 | sentenciaFuncion
+                 | expresion_funcion
     '''
 def p_sentenciaIf(p):
     'sentenciaIf : IF LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
@@ -71,12 +73,33 @@ def p_operadorLog(p):
                     | AND
                     | OR
     '''
+def p_expresion_funcion(p):
+    'expresion_funcion : VARIABLE LPAREN parametros RPAREN'
 
+def p_parametros(p):
+    '''parametros : valor
+                  | asignacion  
+                  | parametros COMA parametros
+                  
+    '''
+
+def p_sentenciafuncion(p): 
+    """sentenciaFuncion : DEF expresion_funcion expresion END
+    """
+  
+def p_array(p): 
+    """
+    array : VARIABLE IGUAL CIZQ CDER
+          | VARIABLE IGUAL CIZQ valor CDER          
+
+    """
+  
 def p_valor(p):
     '''valor : ENTERO
              | VARIABLE
              | CADENA
              | DECIMAL
+             | array
     '''
 # Error rule for syntax errors
 def p_error(p):
