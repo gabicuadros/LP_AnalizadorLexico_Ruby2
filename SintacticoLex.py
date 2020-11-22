@@ -1,9 +1,7 @@
 import ply.yacc as yacc
  
 
-from RubyLexer2 import tokens
-
-
+from RubyLexer import tokens
 
 def p_algoritmo(p):
     '''algoritmo : imprimir
@@ -11,20 +9,33 @@ def p_algoritmo(p):
                  | expresion
                  | comparacion
                  | sentenciaIf
+                 | comparacionLog
     '''
 def p_sentenciaIf(p):
     'sentenciaIf : IF LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
+
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL expresion'
 
 def p_imprimir(p):
-    'imprimir : PRINT LPAREN expresion RPAREN'
+    '''imprimir : print
+                | puts
+    '''
+
+def p_print(p):
+    'print : PRINT LPAREN expresion RPAREN'
+
+def p_puts(p):
+    'puts : PUTS expresion'
     
 def p_expresion(p):
     '''expresion : valor
     '''
 def p_comparacion(p):
     'comparacion : expresion operadorCom expresion'
+
+def p_comparacionLogica(p):
+    'comparacionLog : comparacion operadorLog comparacion'
 
 def p_expresion_aritmetica(p):
     'expresion : valor operadorMat expresion'
@@ -34,6 +45,8 @@ def p_operadorMat(p):
                    | RESTA
                    | DIV
                    | PROD
+                   | POTENCIA
+                   | MOD
     '''
 
 def p_operadorComp(p):
@@ -42,13 +55,21 @@ def p_operadorComp(p):
                    | MAYORIGU
                    | MENORIGU
                    | DIFERENTE
+                   | IGUALA
     '''
-
-
+def p_operadorLog(p):
+    '''operadorLog  : OPAND
+                    | OPOR
+                    | OPXOR
+                    | AND
+                    | OR
+    '''
 
 def p_valor(p):
     '''valor : ENTERO
              | VARIABLE
+             | CADENA
+             | DECIMAL
     '''
 # Error rule for syntax errors
 def p_error(p):

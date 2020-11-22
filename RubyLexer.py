@@ -287,8 +287,9 @@ t_ignore_COMMENT=r'(\#.*)'
 def t_error(t):
     print("No es reconocido '%s'" % t.value[0])
     t.lexer.skip(1)
+
 lexer = lex.lex()
-def analizar(data):
+'''def analizar(data):
     lexer.input(data)
     # Tokenize
     while True:
@@ -307,4 +308,4 @@ for linea in archivo:
     print(">>"+linea)
     analizar(linea)
     if len(linea)==0:
-        break
+        break'''
