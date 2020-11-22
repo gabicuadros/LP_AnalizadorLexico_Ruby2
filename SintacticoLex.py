@@ -7,7 +7,6 @@ def p_algoritmo(p):
     '''algoritmo : imprimir
                  | asignacion
                  | expresion
-                 | comparacion
                  | sentenciaIf
                  | comparacionLog
     '''
@@ -35,8 +34,12 @@ def p_comparacion(p):
     'comparacion : expresion operadorCom expresion'
 
 def p_comparacionLogica(p):
-    'comparacionLog : comparacion operadorLog comparacion'
+    'comparacionLog : comparacion operadorLog comparacionLog'
 
+def p_comparacionLog(p):
+    '''comparacionLog : comparacion
+    '''
+    
 def p_expresion_aritmetica(p):
     'expresion : valor operadorMat expresion'
 
