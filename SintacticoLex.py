@@ -90,7 +90,9 @@ def p_sentenciafuncion(p):
 def p_array(p): 
     """
     array : VARIABLE IGUAL CIZQ CDER
-          | VARIABLE IGUAL CIZQ valor CDER          
+          | VARIABLE IGUAL CIZQ valor CDER  
+          | VARIABLE IGUAL ARRAY NEW
+          | VARIABLE IGUAL ARRAY NEW LPAREN parametros RPAREN
 
     """
   
