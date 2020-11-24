@@ -78,7 +78,8 @@ tokens = [
     "MENORIGU",
     "IMPRIMIR",
     "OPXOR",
-    "RANGO"
+    "RANGO",
+    "ASIGNACION"
 ] + list(reserved.values())
 t_IGUAL= r"="
 t_PROD = r"\*"
@@ -111,7 +112,7 @@ t_DIFERENTE=r'!='
 t_IGUALA=r'=='
 t_OPXOR=r'\^'
 t_RANGO=r'\.\.'
-
+t_ASIGNACION=r'=>'
 def t_WHILE(t):
     r'while'
     return t
