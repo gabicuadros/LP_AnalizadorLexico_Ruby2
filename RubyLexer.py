@@ -61,7 +61,6 @@ tokens = [
     "CIZQ",
     "CDER",
     "MENOR",
-    "BOOLEANO",
     "PUNTO",
     "PUNTOYCOMA",
     "DOSPUNTOS",
