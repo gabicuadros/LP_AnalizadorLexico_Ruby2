@@ -78,9 +78,7 @@ def p_expresion_funcion(p):
 
 def p_parametros(p):
     '''parametros : valor
-                  | asignacion  
-                  | parametros COMA parametros
-                  
+                  | asignacion                   
     '''
 
 def p_sentenciafuncion(p): 
@@ -91,9 +89,6 @@ def p_array(p):
     """
     array : VARIABLE IGUAL CIZQ CDER
           | VARIABLE IGUAL CIZQ valor CDER  
-          | VARIABLE IGUAL ARRAY NEW
-          | VARIABLE IGUAL ARRAY NEW LPAREN parametros RPAREN
-
     """
   
 def p_valor(p):
@@ -101,7 +96,7 @@ def p_valor(p):
              | VARIABLE
              | CADENA
              | DECIMAL
-             | array
+
     '''
 # Error rule for syntax errors
 def p_error(p):
