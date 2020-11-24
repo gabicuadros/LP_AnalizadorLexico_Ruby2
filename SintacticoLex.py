@@ -13,16 +13,22 @@ def p_algoritmo(p):
                  | sentenciaFuncion
                  | expresion_funcion
                  | ingreso
+                 | sentenciaElse
     '''
 
 def p_sentenciaIf(p):
     'sentenciaIf : IF LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
+
+def p_sentenciaElse(p):
+  'sentenciaElse : ELSE algoritmo END'
 
 def p_sentenciaWhile(p):
     'sentenciaWhile : WHILE LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
 
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL valores'
+
+
 
 def p_imprimir(p):
     '''imprimir : print

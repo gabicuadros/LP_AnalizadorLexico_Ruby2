@@ -31,6 +31,8 @@ reserved = {
  "case":"CASE",
  "begin":"BEGIN",
  "if":"IF",
+"else":"ELSE",
+ "elif":"ELIF",
  "for":"FOR",
  "Array":"ARRAY",
  "puts":"PUTS",
@@ -117,6 +119,15 @@ def t_WHILE(t):
 
 def t_IF(t):
         r'if'
+        return t
+
+
+def t_ELSE(t):
+    r'else'
+    return t
+
+def t_ELIF(t):
+        r'elif'
         return t
 
 def t_FOR(t):
