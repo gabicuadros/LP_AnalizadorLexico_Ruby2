@@ -12,7 +12,9 @@ def p_algoritmo(p):
                  | sentenciaWhile
                  | sentenciaFuncion
                  | expresion_funcion
+                 | ingreso
     '''
+
 def p_sentenciaIf(p):
     'sentenciaIf : IF LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
 
@@ -20,13 +22,31 @@ def p_sentenciaWhile(p):
     'sentenciaWhile : WHILE LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
 
 def p_asignacion(p):
-    'asignacion : VARIABLE IGUAL expresion'
+    'asignacion : VARIABLE IGUAL valores'
 
 def p_imprimir(p):
     '''imprimir : print
                 | puts
     '''
-    
+
+def p_asignacion_bool(p):
+    '''valores : expresion
+                | true
+                | false
+    '''
+def p_true(p):
+    'true : TRUE'
+ 
+def p_false(p):
+    'false : FALSE'
+ 
+def p_ingreso(p):
+    '''ingreso : gets
+    '''
+ 
+def p_gets(p):
+    'gets : GETS expresion'
+
 def p_print(p):
     'print : PRINT LPAREN expresion RPAREN'
 
@@ -99,7 +119,7 @@ def p_valor(p):
              | VARIABLE
              | CADENA
              | DECIMAL
-
+             | array
     '''
 # Error rule for syntax errors
 def p_error(p):
