@@ -67,3 +67,33 @@ puts "hello"
 #Hola
 nombre = gets
 1>=2
+
+
+#Vaque
+hashX={1=>2,3=>2}
+hashX={1=>2}
+arr=[1,2]
+def xf(x,2) x+1 end
+def xf(x) x+1 end
+
+#Yugcha
+@variable = 13
+@booleano = false
+print("hola")
+printf("prueba")
+variable = False
+var2 = True
+@@var = true
+a>b
+a<b
+a>=b
+a<=b
+
+#Cuadros
+if 1 == 2 end
+if 1 == 2 "hola" end
+if 1 == 2 puts "hola" elsif 3==2 puts "hola" end
+if 1 == 2 "hola" end elsif 3 ==2 puts "hola" end
+if 1 == 2 puts "hola" elsif 3==2 puts "hola" else puts "AP"
+if 1 == 2 puts "hola" elsif 3==2 puts "hola" else puts "AP" end
+arr=[1]
