@@ -114,7 +114,9 @@ def p_expresion_funcion(p):
 
 def p_parametros(p):
     '''parametros : valor
-                  | asignacion                   
+                  | asignacion  
+                  | valor COMA parametros
+                  
     '''
 
 def p_sentenciafuncion(p): 
@@ -124,18 +126,31 @@ def p_sentenciafuncion(p):
 def p_array(p): 
     """
     array : VARIABLE IGUAL CIZQ CDER
-          | VARIABLE IGUAL CIZQ valor CDER  
+          | VARIABLE IGUAL CIZQ parametros CDER
           | VARIABLE IGUAL ARRAY NEW
-          | VARIABLE IGUAL ARRAY NEW LPAREN parametros RPAREN
+          | VARIABLE IGUAL ARRAY NEW CIZQ parametros CDER
+    
 
     """
-  
+
+def p_hash(p):
+    ''' hash : VARIABLE IGUAL LIZQ params_hash LDER
+    '''
+
+def p_params_hash(p):
+    '''params_hash : CADENA ASIGNACION valor
+                   | ENTERO ASIGNACION valor
+                   | DECIMAL ASIGNACION valor
+                   | CADENA ASIGNACION valor COMA params_hash
+    '''
+
 def p_valor(p):
     '''valor : ENTERO
              | VARIABLE
              | CADENA
              | DECIMAL
              | array
+             | hash
     '''
 # Error rule for syntax errors
 def p_error(p):
