@@ -142,7 +142,8 @@ def p_params_hash(p):
                    | ENTERO ASIGNACION valor
                    | DECIMAL ASIGNACION valor
                    | CADENA ASIGNACION valor COMA params_hash
-    '''
+                   | ENTERO ASIGNACION valor COMA params_hash
+                   | DECIMAL ASIGNACION valor COMA params_hash
 
 def p_valor(p):
     '''valor : ENTERO
