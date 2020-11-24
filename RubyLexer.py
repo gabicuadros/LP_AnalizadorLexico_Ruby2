@@ -32,7 +32,7 @@ reserved = {
  "begin":"BEGIN",
  "if":"IF",
 "else":"ELSE",
- "elif":"ELIF",
+ "elsif":"ELSIF",
  "for":"FOR",
  "Array":"ARRAY",
  "puts":"PUTS",
@@ -125,8 +125,8 @@ def t_ELSE(t):
     r'else'
     return t
 
-def t_ELIF(t):
-        r'elif'
+def t_ELSIF(t):
+        r'elsif'
         return t
 
 def t_FOR(t):

@@ -13,14 +13,24 @@ def p_algoritmo(p):
                  | sentenciaFuncion
                  | expresion_funcion
                  | ingreso
-                 | sentenciaElse
+                 | varianteIf
     '''
 
 def p_sentenciaIf(p):
-    'sentenciaIf : IF LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
 
-def p_sentenciaElse(p):
-  'sentenciaElse : ELSE algoritmo END'
+    'sentenciaIf : IF comparacion algoritmo varianteIf'
+
+
+
+def p_varienteIf(p):
+
+    '''varianteIf : ELSIF comparacion algoritmo varianteIf
+
+                  | ELSE algoritmo END
+
+                  | END
+
+    '''
 
 def p_sentenciaWhile(p):
     'sentenciaWhile : WHILE LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
