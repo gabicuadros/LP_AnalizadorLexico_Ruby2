@@ -144,6 +144,7 @@ def p_params_hash(p):
                    | CADENA ASIGNACION valor COMA params_hash
                    | ENTERO ASIGNACION valor COMA params_hash
                    | DECIMAL ASIGNACION valor COMA params_hash
+                   '''
 
 def p_valor(p):
     '''valor : ENTERO
@@ -154,12 +155,16 @@ def p_valor(p):
              | hash
     '''
 # Error rule for syntax errors
+error=[]
+error.append("")
 def p_error(p):
-     print("Syntax error in input!")
+    error[0] = "Syntax error in input!"
+    print("Syntax error in input!")
  
 # Build the parser
 parser = yacc.yacc()
- 
+
+''' 
 while True:
     try:
         s = input('calc > ')
@@ -167,7 +172,11 @@ while True:
         break
     if not s: continue
     result = parser.parse(s)
-    print(result)
+    if result:
+        print(result)
+'''
+     
+
 
      
 
