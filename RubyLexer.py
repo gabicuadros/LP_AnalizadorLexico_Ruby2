@@ -300,23 +300,15 @@ def t_error(t):
     t.lexer.skip(1)
 
 lexer = lex.lex()
-'''def analizar(data):
+def analizar(data):
     lexer.input(data)
-    # Tokenize
     while True:
-        tok = lexer.token()
-        if not tok:
-            break  # No more input
-        print(tok)
+        to = lexer.token()
+        if not to:
+            break  
+        linea = str(to)+"\n"
+        return linea
+        
+        print(to)
 
 
-
-print("Mi primer analizador léxico:")
-# Testing
-
-archivo = open("codigo.txt")
-for linea in archivo:
-    print(">>"+linea)
-    analizar(linea)
-    if len(linea)==0:
-        break'''
