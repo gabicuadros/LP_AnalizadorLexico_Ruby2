@@ -1,7 +1,6 @@
 import ply.lex as lex
 reserved = {
  "while":"WHILE",
- "alias":"ALIAS",
  "and":"AND",
  "break":"BREAK",
  "class":"CLASS",
@@ -31,7 +30,7 @@ reserved = {
  "case":"CASE",
  "begin":"BEGIN",
  "if":"IF",
-"else":"ELSE",
+ "else":"ELSE",
  "elsif":"ELSIF",
  "for":"FOR",
  "Array":"ARRAY",
@@ -132,10 +131,6 @@ def t_ELSIF(t):
 
 def t_FOR(t):
         r'for'
-        return t
-
-def t_ALIAS(t):
-        r'alias'
         return t
 
 def t_AND(t):

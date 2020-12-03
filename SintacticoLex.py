@@ -6,7 +6,6 @@ from RubyLexer import tokens
 def p_algoritmo(p):
     '''algoritmo : imprimir
                  | asignacion
-                 | expresion
                  | sentenciaIf
                  | comparacionLog
                  | sentenciaWhile
@@ -14,6 +13,11 @@ def p_algoritmo(p):
                  | expresion_funcion
                  | ingreso
                  | varianteIf
+                 | estructurabegin
+    '''
+def p_break(p):
+    '''break : BREAK
+             | empty 
     '''
 
 def p_sentenciaIf(p):
@@ -21,14 +25,13 @@ def p_sentenciaIf(p):
     'sentenciaIf : IF comparacion algoritmo varianteIf'
 
 
-
 def p_varienteIf(p):
 
     '''varianteIf : ELSIF comparacion algoritmo varianteIf
 
-                  | ELSE algoritmo END
+                  | ELSE algoritmo break END
 
-                  | END
+                  | break END
 
     '''
 
@@ -37,7 +40,6 @@ def p_sentenciaWhile(p):
 
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL valores'
-
 
 
 def p_imprimir(p):
@@ -153,7 +155,16 @@ def p_valor(p):
              | DECIMAL
              | array
              | hash
+             | NIL
     '''
+
+def p_estructurabegin(p):
+    'estructurabegin : BEGIN algoritmo END'
+
+def p_empty(p):
+    'empty :'
+    pass
+
 # Error rule for syntax errors
 error=[]
 error.append("")
