@@ -4,17 +4,16 @@ from RubyLexer import analizar
 import SintacticoLex as sl
 
 ventana = Tk()
-ventana.geometry("800x640") 
-
+ventana.geometry("800x640")
 
 def analisisLexico(areaResultado,txt):
-    areaResultado.delete("1.0", 'end-1c')  
+    areaResultado.delete("1.0", 'end-1c')
+    linea = ""  
     linea = analizar(txt)
     for variable in linea:
         areaResultado.insert(tkinter.INSERT,variable)
         areaResultado.insert(tkinter.INSERT,"\n")
-
-
+           
 def analisisSintactico(areaResultado,txt):
     areaResultado.delete("1.0", 'end-1c')
     sl.parser.parse(txt)
@@ -23,7 +22,6 @@ def analisisSintactico(areaResultado,txt):
         sl.error[0]=""
         
     else: areaResultado.insert(tkinter.INSERT, "Analisis Sintactico Correcto")
-
 
 
 def analizadorSintac(codigo_text_area):
@@ -45,7 +43,7 @@ def analizadorLex(codigo_text_area):
 etiqueta = tkinter.Label(ventana, text ="Analizador Ruby", font="Verdana",fg="blue")
 etiqueta.place(x=50,y=10, width=150,height=50)
 
-areaCodigo = tkinter.Text(ventana, height=7, width=30,)
+areaCodigo = tkinter.Text(ventana)
 areaCodigo.configure(relief="raised", borderwidth=2)
 areaCodigo.place(x=10,y=50,width=400,height=150)
 

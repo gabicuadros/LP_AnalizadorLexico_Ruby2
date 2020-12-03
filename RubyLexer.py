@@ -68,7 +68,7 @@ t_MENORIGU = r"<="
 t_ENTERO = r"\d+"
 t_DIV=r"/"
 t_POTENCIA=r"\*\*"
-t_RESTA=r"-"
+t_RESTA=r"\-"
 t_CIZQ=r"\["
 t_CDER=r"\]"
 t_LIZQ=r"\{"
@@ -85,7 +85,7 @@ t_IGUALA=r'=='
 t_OPXOR=r'\^'
 t_RANGO=r'\d\.\.\d'
 t_ASIGNACION=r'=>'
-t_NEGATIVO=r'\-'
+t_NEGATIVO=r'-\d'
 def t_WHILE(t):
     r'while'
     return t
@@ -191,8 +191,8 @@ def t_error(t):
 lexer = lex.lex()
 
 def analizar(data):
-        arr = []
-        lexer.input(data)   
+        lexer.input(data)        
+        arr = []   
         # Tokenize	
         while True:	    
                 tok = lexer.token()	        

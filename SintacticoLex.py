@@ -12,7 +12,6 @@ def p_algoritmo(p):
                  | sentenciaFuncion
                  | expresion_funcion
                  | ingreso
-                 | varianteIf
                  | estructurabegin
                  | array_func
                  | estructura_for
@@ -123,7 +122,7 @@ def p_parametros(p):
     '''
 
 def p_sentenciafuncion(p): 
-    """sentenciaFuncion : DEF expresion_funcion expresion END
+    """sentenciaFuncion : DEF expresion_funcion algoritmo END
     """
 
 def p_estructura_for(p):
@@ -165,29 +164,25 @@ def p_hash(p):
 
 def p_params_hash(p):
     '''params_hash : CADENA ASIGNACION valor
-                   | negativo ENTERO ASIGNACION valor
-                   | negativo DECIMAL ASIGNACION valor
+                   | ENTERO ASIGNACION valor
+                   | DECIMAL ASIGNACION valor
                    | CADENA ASIGNACION valor COMA params_hash
-                   | negativo ENTERO ASIGNACION valor COMA params_hash
-                   | negativo DECIMAL ASIGNACION valor COMA params_hash
+                   | ENTERO ASIGNACION valor COMA params_hash
+                   | DECIMAL ASIGNACION valor COMA params_hash
     '''
 
 def p_valor(p):
-    '''valor : negativo ENTERO
+    '''valor : ENTERO
              | VARIABLE
              | CADENA
-             | negativo DECIMAL
+             | DECIMAL
              | array
              | hash
              | NIL
              | RANGO
+             | NEGATIVO
     '''
               
-def p_negativo(p):
-    '''negativo : NEGATIVO
-                | empty
-    '''
-
 def p_estructurabegin(p):
     'estructurabegin : BEGIN algoritmo END'
 
@@ -204,7 +199,6 @@ error=[]
 error.append("")
 def p_error(p):
     error[0] = "Syntax error in input!"
-    print("Syntax error in input!")
  
 # Build the parser
 parser = yacc.yacc()
