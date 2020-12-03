@@ -300,15 +300,17 @@ def t_error(t):
     t.lexer.skip(1)
 
 lexer = lex.lex()
+
 def analizar(data):
-    lexer.input(data)
-    while True:
-        to = lexer.token()
-        if not to:
-            break  
-        linea = str(to)+"\n"
-        return linea
-        
-        print(to)
+        arr = []
+        lexer.input(data)   
+        # Tokenize	
+        while True:	    
+                tok = lexer.token()	        
+                if not tok:	       
+                        break  # No more input	          
+                arr.append(tok)
+        return arr
+    
 
 
