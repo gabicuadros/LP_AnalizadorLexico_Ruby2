@@ -22,12 +22,11 @@ def p_break(p):
 
 def p_sentenciaIf(p):
 
-    'sentenciaIf : IF comparacion algoritmo varianteIf'
+    'sentenciaIf : IF comparacionLog algoritmo varianteIf'
 
 
 def p_varienteIf(p):
-
-    '''varianteIf : ELSIF comparacion algoritmo varianteIf
+    '''varianteIf : ELSIF comparacionLog algoritmo varianteIf
 
                   | ELSE algoritmo break END
 
@@ -36,7 +35,7 @@ def p_varienteIf(p):
     '''
 
 def p_sentenciaWhile(p):
-    'sentenciaWhile : WHILE LPAREN comparacion RPAREN DOSPUNTOS algoritmo'
+    'sentenciaWhile : WHILE LPAREN comparacionLog RPAREN DOSPUNTOS algoritmo'
 
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL valores'
@@ -53,10 +52,10 @@ def p_asignacion_bool(p):
                 | false
     '''
 def p_true(p):
-    'true : TRUE'
+    'true : negacion TRUE'
  
 def p_false(p):
-    'false : FALSE'
+    'false : negacion FALSE'
  
 def p_ingreso(p):
     '''ingreso : gets
@@ -131,8 +130,6 @@ def p_array(p):
           | VARIABLE IGUAL CIZQ parametros CDER
           | VARIABLE IGUAL ARRAY NEW
           | VARIABLE IGUAL ARRAY NEW CIZQ parametros CDER
-    
-
     """
 
 def p_hash(p):
@@ -141,25 +138,34 @@ def p_hash(p):
 
 def p_params_hash(p):
     '''params_hash : CADENA ASIGNACION valor
-                   | ENTERO ASIGNACION valor
-                   | DECIMAL ASIGNACION valor
+                   | negativo ENTERO ASIGNACION valor
+                   | negativo DECIMAL ASIGNACION valor
                    | CADENA ASIGNACION valor COMA params_hash
-                   | ENTERO ASIGNACION valor COMA params_hash
-                   | DECIMAL ASIGNACION valor COMA params_hash
-                   '''
+                   | negativo ENTERO ASIGNACION valor COMA params_hash
+                   | negativo DECIMAL ASIGNACION valor COMA params_hash
+    '''
 
 def p_valor(p):
-    '''valor : ENTERO
+    '''valor : negativo ENTERO
              | VARIABLE
              | CADENA
-             | DECIMAL
+             | negativo DECIMAL
              | array
              | hash
              | NIL
     '''
-
+              
+def p_negativo(p):
+    '''negativo : NEGATIVO
+                | empty
+    '''
 def p_estructurabegin(p):
     'estructurabegin : BEGIN algoritmo END'
+
+def p_negacion(p):
+    '''negacion : NEGACION
+                | empty
+    '''
 
 def p_empty(p):
     'empty :'

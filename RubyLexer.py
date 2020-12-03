@@ -60,13 +60,10 @@ tokens = [
     "CIZQ",
     "CDER",
     "MENOR",
-    "PUNTO",
-    "PUNTOYCOMA",
     "DOSPUNTOS",
     "LPAREN",
     "RPAREN",
     "COMA",
-    "DOBLECOMILLA",
     "CADENA",
     "NEGACION",
     "OPAND",
@@ -75,10 +72,10 @@ tokens = [
     "IGUALA",
     "MAYORIGU",
     "MENORIGU",
-    "IMPRIMIR",
     "OPXOR",
     "RANGO",
-    "ASIGNACION"
+    "ASIGNACION",
+    "NEGATIVO"
 ] + list(reserved.values())
 t_IGUAL= r"="
 t_PROD = r"\*"
@@ -97,13 +94,10 @@ t_CIZQ=r"\["
 t_CDER=r"\]"
 t_LIZQ=r"\{"
 t_LDER=r"\}"
-t_PUNTO = r'\.'
-t_PUNTOYCOMA = r'\;'
 t_DOSPUNTOS = r':'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_COMA = r'\,'
-t_DOBLECOMILLA= r'\"'
 t_NEGACION=r'!'
 t_OPAND=r'\&\&'
 t_OPOR=r'\|\|'
@@ -112,6 +106,7 @@ t_IGUALA=r'=='
 t_OPXOR=r'\^'
 t_RANGO=r'\.\.'
 t_ASIGNACION=r'=>'
+t_NEGATIVO=r'\-'
 def t_WHILE(t):
     r'while'
     return t
