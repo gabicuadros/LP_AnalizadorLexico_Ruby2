@@ -7,7 +7,6 @@ ventana = Tk()
 ventana.geometry("800x640") 
 
 
-
 def analisisLexico(areaResultado,txt):
     areaResultado.delete("1.0", 'end-1c')  
     linea = analizar(txt)

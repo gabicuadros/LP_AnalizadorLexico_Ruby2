@@ -3,45 +3,24 @@ reserved = {
  "while":"WHILE",
  "and":"AND",
  "break":"BREAK",
- "class":"CLASS",
  "def":"DEF",
  "end":"END",
- "ensure":"ENSURE",
  "in":"IN",
- "module":"MODULE",
- "next":"NEXT",
  "nil":"NIL",
- "not":"NOT",
  "or":"OR",
- "redo":"REDO",
- "rescue":"RESCUE",
- "retry":"RETRY",
- "return":"RETURN",
- "self":"SELF",
- "super":"SUPER",
- "then":"THEN",
- "undef":"UNDEF",
- "unless":"UNLESS",
- "until":"UNTIL",
- "when":"WHEN",
- "yield":"YIELD",
- "_FILE_":"FILE",
- "_LINE_":"LINE",
- "case":"CASE",
  "begin":"BEGIN",
  "if":"IF",
  "else":"ELSE",
  "elsif":"ELSIF",
  "for":"FOR",
- "Array":"ARRAY",
  "puts":"PUTS",
  "gets":"GETS",
  "false":"FALSE",
  "true":"TRUE",
  "print":"PRINT",
- "initialize":"INITIALIZE",
- ".new":"NEW",
- "Hash":"HASH"
+ "length":"LENGTH",
+ "delete_at":"DELETE_AT",
+ "do":"DO"
 }
 tokens = [
     "VARIABLE",
@@ -104,7 +83,7 @@ t_OPOR=r'\|\|'
 t_DIFERENTE=r'!='
 t_IGUALA=r'=='
 t_OPXOR=r'\^'
-t_RANGO=r'\.\.'
+t_RANGO=r'\d\.\.\d'
 t_ASIGNACION=r'=>'
 t_NEGATIVO=r'\-'
 def t_WHILE(t):
@@ -136,10 +115,6 @@ def t_BREAK(t):
         r'break'
         return t
 
-def t_CLASS(t):
-        r'class .*'
-        return t
-
 def t_DEF(t):
         r'def'
         return t
@@ -148,92 +123,28 @@ def t_END(t):
         r'end'
         return t
 
-def t_ENSURE(t):
-        r'ensure'
+def t_LENGTH(t):
+        r'\.length'
+        return t
+
+def t_DELETE_AT(t):
+        r'\.delete_at'
         return t
 
 def t_IN(t):
         r'in'
         return t
 
-def t_MODULE(t):
-        r'module'
-        return t
-
 def t_NIL(t):
         r'nil'
-        return t
-
-def t_NOT(t):
-        r'not'
         return t
 
 def t_OR(t):
         r'or'
         return t
 
-def t_REDO(t):
-        r'redo'
-        return t
-
-def t_RESCUE(t):
-        r'rescue'
-        return t
-
-def t_RETRY(t):
-        r'retry'
-        return t
-
-def t_RETURN(t):
-        r'return'
-        return t
-
-def t_SELF(t):
-        r'self'
-        return t
-
-def t_SUPER(t):
-        r'super'
-        return t
-
-def t_THEN(t):
-        r'then'
-        return t
-
-def t_UNDEF(t):
-        r'undef'
-        return t
-
-def t_UNTIL(t):
-        r'until'
-        return t
-
-def t_WHEN(t):
-        r'when'
-        return t
-
-def t_YIELD(t):
-        r'yield'
-        return t
-
-def t_FILE(t):
-        r'_FILE_'
-        return t
-
-def t_LINE(t):
-        r'_LINE_'
-        return t
-
-def t_CASE(t):
-        r'case'
-        return t
-
 def t_BEGIN(t):
         r'begin'
-        return t
-
-def t_ARRAY(t):
-        r'array'
         return t
 
 def t_CADENA(t):
@@ -258,18 +169,6 @@ def t_FALSE(t):
 
 def t_PRINT(t):
         r'printf?'
-        return t
-
-def t_INITIALIZE(t):
-        r'initialize'
-        return t
-
-def t_NEW(t):
-        r'\.new'
-        return t
-
-def t_HASH(t):
-        r'Hash'
         return t
 
 def build(self, **kwargs):

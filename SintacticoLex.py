@@ -14,6 +14,9 @@ def p_algoritmo(p):
                  | ingreso
                  | varianteIf
                  | estructurabegin
+                 | array_func
+                 | estructura_for
+                 | slice_array
     '''
 def p_break(p):
     '''break : BREAK
@@ -39,7 +42,6 @@ def p_sentenciaWhile(p):
 
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL valores'
-
 
 def p_imprimir(p):
     '''imprimir : print
@@ -123,17 +125,42 @@ def p_parametros(p):
 def p_sentenciafuncion(p): 
     """sentenciaFuncion : DEF expresion_funcion expresion END
     """
-  
+
+def p_estructura_for(p):
+    '''estructura_for : FOR VARIABLE IN array DO algoritmo END
+                      | FOR VARIABLE IN RANGO DO algoritmo END
+                      | FOR VARIABLE IN array algoritmo END
+    '''
+
 def p_array(p): 
     """
-    array : VARIABLE IGUAL CIZQ CDER
-          | VARIABLE IGUAL CIZQ parametros CDER
-          | VARIABLE IGUAL ARRAY NEW
-          | VARIABLE IGUAL ARRAY NEW CIZQ parametros CDER
+    array : CIZQ CDER
+          | CIZQ parametros CDER
     """
+def p_array_func(p):
+    'array_func : VARIABLE funciones_Array'
+    
+def p_funciones_Array(p):
+    '''funciones_Array : length_array 
+                       | deleteAT_array               
+    '''
+def p_deleteAT_array(p):
+    ''' deleteAT_array : DELETE_AT LPAREN ENTERO RPAREN
+    '''
 
+def p_length_array(p):
+    ''' length_array : LENGTH
+                     | LENGTH LPAREN RPAREN
+    '''
+#slicing
+def p_slice_array(p):
+    ''' slice_array : VARIABLE CIZQ ENTERO CDER
+                    | VARIABLE CIZQ RANGO CDER
+    '''
+    
 def p_hash(p):
-    ''' hash : VARIABLE IGUAL LIZQ params_hash LDER
+    ''' hash :  LIZQ params_hash LDER
+             |  LIZQ  LDER
     '''
 
 def p_params_hash(p):
@@ -153,12 +180,14 @@ def p_valor(p):
              | array
              | hash
              | NIL
+             | RANGO
     '''
               
 def p_negativo(p):
     '''negativo : NEGATIVO
                 | empty
     '''
+
 def p_estructurabegin(p):
     'estructurabegin : BEGIN algoritmo END'
 
@@ -166,7 +195,6 @@ def p_negacion(p):
     '''negacion : NEGACION
                 | empty
     '''
-
 def p_empty(p):
     'empty :'
     pass
@@ -180,20 +208,3 @@ def p_error(p):
  
 # Build the parser
 parser = yacc.yacc()
-
-''' 
-while True:
-    try:
-        s = input('calc > ')
-    except EOFError:
-        break
-    if not s: continue
-    result = parser.parse(s)
-    if result:
-        print(result)
-'''
-     
-
-
-     
-
